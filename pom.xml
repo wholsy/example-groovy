@@ -3,32 +3,69 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-    	<groupId>com.yueny.base</groupId>
-		<artifactId>parent_boot</artifactId>
-		<version>1.1.2-SNAPSHOT</version>
+
+	<parent>
+		<groupId>com.yueny</groupId>
+		<artifactId>yueny-parent</artifactId>
+		<version>1.1.5-RELEASE</version>
 	</parent>
     
     <groupId>com.yueny.example</groupId>
     <artifactId>example-example-groovy</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 	
 	<properties>
 		<java.version>1.8</java.version>
+		<spring.boot.version>1.5.3.RELEASE</spring.boot.version>
 
 		<yueny.rapid.latest.version>1.0.1-SNAPSHOT</yueny.rapid.latest.version>
 	</properties>
-	
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
     <dependencies>
         <dependency>
 			<groupId>com.yueny.rapid</groupId>
 			<artifactId>rapid-data-resp</artifactId>
 			<version>${yueny.rapid.latest.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.yueny.rapid</groupId>
-			<artifactId>rapid-util-sla</artifactId>
+			<artifactId>rapid-lang-util</artifactId>
+			<version>${yueny.rapid.latest.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yueny.rapid</groupId>
+			<artifactId>rapid-lang-ip</artifactId>
+			<version>${yueny.rapid.latest.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yueny.rapid</groupId>
+			<artifactId>rapid-lang-crypt</artifactId>
+			<version>${yueny.rapid.latest.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yueny.rapid.message</groupId>
+			<artifactId>rapid-message-email</artifactId>
+			<version>${yueny.rapid.latest.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yueny.rapid</groupId>
+			<artifactId>rapid-topic-sla</artifactId>
 			<version>${yueny.rapid.latest.version}</version>
 		</dependency>
 		
@@ -104,6 +141,22 @@
 
     <build>
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
