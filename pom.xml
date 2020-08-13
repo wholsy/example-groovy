@@ -73,8 +73,10 @@
 
 		<dependency>
 			<groupId>com.yueny.rapid.message</groupId>
-			<artifactId>rapid-message-email</artifactId>
+			<artifactId>rapid-ok-email</artifactId>
 			<version>${yueny.rapid.latest.version}</version>
+			<!--<groupId>com.yueny.rapid</groupId>-->
+			<!--<artifactId>rapid-message-email</artifactId>-->
 		</dependency>
 
 		<dependency>
