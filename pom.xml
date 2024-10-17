@@ -19,7 +19,7 @@
 		<java.version>1.8</java.version>
 		<spring.boot.version>1.5.3.RELEASE</spring.boot.version>
 
-		<groovy.version>2.4.15</groovy.version>
+		<groovy.version>2.4.21</groovy.version>
 
 		<yueny.rapid.latest.version>1.0.1-SNAPSHOT</yueny.rapid.latest.version>
 	</properties>
